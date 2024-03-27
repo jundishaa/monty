@@ -7,34 +7,28 @@
  */
 void push(stack_t **stack, unsigned int line_number)
 {
-	int n;
-	char *endptr;
 	stack_t *new_node;
 
-	n = atoi(bytecode + opcodes[*stack].opcode_len);
-
-	if (*bytecode == '\0' || *endptr != '\0')
+	/* Check if the argument is an integer */
+	if (global_variable.holder == NULL || _isdigit(global_variable.holder) == 0)
 	{
-		fprintf(stderr, "L%u: usage: push integer\n", line_number);
+		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 
 	new_node = malloc(sizeof(stack_t));
-	if (!new_node)
+	if (new_node == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
 
-	new_node->n = n;
+	new_node->n = atoi(global_variable.holder);
 	new_node->prev = NULL;
 	new_node->next = *stack;
 
-	if (*stack)
-	{
+	if (*stack != NULL)
 		(*stack)->prev = new_node;
-	}
-
 	*stack = new_node;
 }
 
@@ -45,18 +39,13 @@ void push(stack_t **stack, unsigned int line_number)
  */
 void pall(stack_t **stack, unsigned int line_number)
 {
-	stack_t *tmp;
+	stack_t *temp = *stack;
 
-	if (!*stack)
-	{
-		return;
-	}
+	(void)line_number;
 
-	tmp = *stack;
-	while (tmp)
+	while (temp != NULL)
 	{
-		printf("%d\n", tmp->n);
-		tmp = tmp->next;
+		printf("%d\n", temp->n);
+		temp = temp->next;
 	}
 }
-
