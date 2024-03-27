@@ -1,5 +1,5 @@
 #include "monty.h"
-extern global_t global_variable;
+global_t global_variable;
 /**
  *main -main function
  *@argc: argument count
