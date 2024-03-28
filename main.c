@@ -40,6 +40,10 @@ int main(int argc, char *argv[])
 		{
 			pall(&stack, line_number);
 		}
+		else if (!strcmp(token, "pint"))
+		{
+			pint(&stack, line_number);
+		}
 		else
 		{
 			fprintf(stderr, "L%d: unknown instruction %s\n", line_number, token);
