@@ -1,5 +1,4 @@
 #include "monty.h"
-extern global_t global_variable;
 
 /**
  * push - pushes an integer value onto the stack
