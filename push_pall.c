@@ -8,26 +8,24 @@ extern global_t global_variable;
  */
 void push(stack_t **stack, unsigned int line_number)
 {
+	int num;
 	stack_t *new_node;
 
-	/* Check if the argument is an integer */
-	if (global_variable.holder == NULL || _isdigit(global_variable.holder) == 0)
+	if (global_variable.holder == NULL || _isdigit(global_variable.holder))
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-
+	num = atoi(global_variable.holder);
 	new_node = malloc(sizeof(stack_t));
 	if (new_node == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
-
-	new_node->n = atoi(global_variable.holder);
+	new_node->n = num;
 	new_node->prev = NULL;
 	new_node->next = *stack;
-
 	if (*stack != NULL)
 		(*stack)->prev = new_node;
 	*stack = new_node;
