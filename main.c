@@ -33,17 +33,13 @@ int main(int argc, char *argv[])
 		token = strtok(line, "\n\t\r ");
 		global_variable.holder = strtok(NULL, "\n\t\r ");
 		if (!strcmp(token, "push"))
-		{
 			push(&stack, line_number);
-		}
 		else if (!strcmp(token, "pall"))
-		{
 			pall(&stack, line_number);
-		}
 		else if (!strcmp(token, "pint"))
-		{
 			pint(&stack, line_number);
-		}
+		else if (!strcmp(token, "pop"))
+			pop(&stack, line_number);
 		else
 		{
 			fprintf(stderr, "L%d: unknown instruction %s\n", line_number, token);
