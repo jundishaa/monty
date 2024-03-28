@@ -1,4 +1,5 @@
 #include "monty.h"
+global_t global_variable;
 
 /**
 * execute - function that executes the opcode
