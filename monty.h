@@ -68,4 +68,5 @@ int execute(char *content, stack_t **stack, unsigned int counter, FILE *file);
 void free_stack(stack_t *head);
 void sub(stack_t **stack, unsigned int line_number);
 void div_stack(stack_t **stack, unsigned int line_number);
+void mul(stack_t **stack, unsigned int line_number);
 #endif
