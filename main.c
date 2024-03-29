@@ -32,8 +32,9 @@ int main(int argc, char *argv[])
 		line_number++;
 		if (line[0] != '#' && line[0] != '\n')
 			execute(line, &stack, line_number, file);
+		free(line);
 	}
-	free(line);
+	free_stack(stack);
 	fclose(file);
 	return (0);
 }
