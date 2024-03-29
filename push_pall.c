@@ -5,19 +5,21 @@ extern global_t global_variable;
  * push - pushes an integer value onto the stack
  * @stack: pointer to the head of the stack
  * @line_number: line number of the opcode in the bytecode file
+ *
  */
 void push(stack_t **stack, unsigned int line_number)
 {
 	int value;
 	stack_t *new_node;
 
-	value = atoi(global_variable.holder);
 
-	if (value == 0 && global_variable.holder[0] != '0')
+	if (global_variable.holder == NULL || _isdigit(global_variable.holder) == 0)
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
+
+	value = atoi(global_variable.holder);
 
 	new_node = malloc(sizeof(stack_t));
 	if (!new_node)

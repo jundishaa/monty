@@ -25,6 +25,8 @@ int execute(char *content, stack_t **stack, unsigned int counter, FILE *file)
 		{"pstr", pstr},
 		{"rotl", rotl},
 		{"rotr", rotr},
+		{"stack", set_stack_mode},
+		{"queue", queue},
 		{"nop", nop},
 		{NULL, NULL}
 	};

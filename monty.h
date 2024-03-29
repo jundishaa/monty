@@ -37,6 +37,7 @@ typedef struct stack_s
 	int n;
 	struct stack_s *prev;
 	struct stack_s *next;
+	int mode;
 } stack_t;
 
 
@@ -56,7 +57,7 @@ typedef struct instruction_s
 
 
 
-void push(stack_t **stack, unsigned int line_number);
+void push(stack_t **stack, unsigned int line_numbe);
 void pall(stack_t **stack, unsigned int line_number);
 int _isdigit(char *str);
 void pint(stack_t **stack, unsigned int line_number);
@@ -75,4 +76,7 @@ void pchar(stack_t **stack, unsigned int line_number);
 void pstr(stack_t **stack, unsigned int line_number);
 void rotl(stack_t **stack, unsigned int line_number);
 void rotr(stack_t **stack, unsigned int line_number);
+void set_stack_mode(stack_t **stack, unsigned int line_number);
+void queue(stack_t **stack, unsigned int line_number);
+
 #endif
